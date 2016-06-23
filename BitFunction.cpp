@@ -173,10 +173,6 @@ pva::BitSet pva::BitFunction::triangle(const pva::BitSet &bits_original, pva::Bi
     }
     return bits_final;
 }
-/*
- * Функция вывода таблицы истинности булевой функции, СДНФ, СКНФ и АНФ
- */
-inline void complex(BitFunction &);
 
 void pva::complex(BitFunction &bitfunction)
 {
