@@ -173,3 +173,11 @@ pva::BitSet pva::BitFunction::triangle(const pva::BitSet &bits_original, pva::Bi
     }
     return bits_final;
 }
+
+void pva::complex(BitFunction &bitfunction)
+{
+    bitfunction.true_table();
+    bitfunction.PDNF();
+    bitfunction.PCNF();
+    bitfunction.ANF();
+}
