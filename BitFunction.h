@@ -52,7 +52,7 @@ namespace pva
         friend std::ostream & operator <<(std::ostream &, const BitFunction &);
         
     private:
-        BitSet triangle(const pva::BitSet &, pva::BitSet &, pva::BitSet &, size_type);
+        BitSet triangle(pva::BitSet &, pva::BitSet &, size_type);
         
     private:
         BitSet _bits; /*!< Сет битов*/
