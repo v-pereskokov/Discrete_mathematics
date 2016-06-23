@@ -30,6 +30,6 @@ namespace pva
         BitSet _bits; /*!< Вектор значений*/
         BitSet _vector; /*!< Вектор строки таблицы*/
         std::vector<BitSet> _table; /*!< Таблица истинности*/
-        bool _flag;
+        bool _flag; /*!< Флаг на проведение операций с вектором битов*/
     };
 }
