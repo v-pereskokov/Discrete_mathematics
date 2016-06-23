@@ -13,7 +13,7 @@ namespace pva
         friend std::ostream & operator <<(std::ostream &, const Except &);
         
     private:
-        std::string _error;
+        std::string _error; /*!< Описание ошибки*/
     };
     
     std::ostream & operator <<(std::ostream &out, const Except &except)
