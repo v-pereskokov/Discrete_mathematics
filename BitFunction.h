@@ -63,6 +63,11 @@ namespace pva
         bool _flag; /*!< Флаг на проведение операций с вектором битов*/
     };
     
+    /*
+     * Функция вывода таблицы истинности булевой функции, СДНФ, СКНФ и АНФ
+     */
+    inline void complex(BitFunction &);
+    
     std::ostream & operator <<(std::ostream &out, const BitFunction &bitfunction)
     {
         for (size_type i = 0; i < bitfunction._size; ++i)
