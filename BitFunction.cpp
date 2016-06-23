@@ -145,7 +145,7 @@ void pva::BitFunction::ANF()
         std::string result;
         pva::BitSet bits_less = _bits;
         pva::BitSet final;
-        pva::BitFunction::triangle(_bits, bits_less, final, pow(2, _n));
+        pva::BitFunction::triangle(bits_less, final, pow(2, _n));
         std::vector<std::string> out({"1", "x3", "x2", "x2x3", "x1", "x1x3", "x1x2", "x1x2x3"});
         for (pva::size_type i = 0; i < final.size(); ++i) {
             if (final[i] == static_cast<pva::Bit>(1)) {
@@ -162,14 +162,14 @@ void pva::BitFunction::ANF()
     }
 }
 
-pva::BitSet pva::BitFunction::triangle(const pva::BitSet &bits_original, pva::BitSet &bits_less, pva::BitSet &bits_final, pva::size_type n)
+pva::BitSet pva::BitFunction::triangle(pva::BitSet &bits_less, pva::BitSet &bits_final, pva::size_type n)
 {
     if (n != 0) {
         bits_less.resize(n);
         bits_final.push_back(bits_less[0]);
         for (pva::size_type j = 0; j < n; ++j)
             bits_less[j] += bits_less[j + 1];
-        pva::BitFunction::triangle(bits_original, bits_less, bits_final, n - 1);
+        pva::BitFunction::triangle(bits_less, bits_final, n - 1);
     }
     return bits_final;
 }
