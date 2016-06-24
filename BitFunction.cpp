@@ -146,7 +146,11 @@ void pva::BitFunction::ANF()
         pva::BitSet bits_less = _bits;
         pva::BitSet final;
         pva::BitFunction::triangle(bits_less, final, pow(2, _n));
-        std::vector<std::string> out({"1", "x3", "x2", "x2x3", "x1", "x1x3", "x1x2", "x1x2x3"});
+
+        std::vector<std::string> out;
+        initialization_vector_x(out, _n);
+        for (auto &v : out)
+            std::cout << v << std::endl;
         for (pva::size_type i = 0; i < final.size(); ++i) {
             if (final[i] == static_cast<pva::Bit>(1)) {
                 result += out[i];
@@ -172,6 +176,23 @@ pva::BitSet pva::BitFunction::triangle(pva::BitSet &bits_less, pva::BitSet &bits
         pva::BitFunction::triangle(bits_less, bits_final, n - 1);
     }
     return bits_final;
+}
+
+std::vector<std::string> pva::BitFunction::initialization_vector_x(std::vector<std::string> & vector, const pva::size_type n)
+{
+    for (pva::size_type i = 0; i < pow(2, n); ++i) {
+        if (i == 0)
+            vector.push_back("1");
+        else {
+            std::string in;
+            for (pva::size_type j = 0; j < n; ++j) {
+                if (_table._table[i][j] == static_cast<pva::Bit>(1))
+                    in += "x" + std::to_string(j + 1);
+            }
+            vector.push_back(in);
+        }
+    }
+    return vector;
 }
 
 void pva::complex(BitFunction &bitfunction)
