@@ -54,6 +54,8 @@ namespace pva
     private:
         BitSet triangle(pva::BitSet &, pva::BitSet &, size_type);
         
+        std::vector<std::string> initialization_vector_x(std::vector<std::string> &, const size_type);
+        
     private:
         BitSet _bits; /*!< Сет битов*/
         std::string _target; /*!< Строка из битов*/
