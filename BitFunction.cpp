@@ -146,11 +146,8 @@ void pva::BitFunction::ANF()
         pva::BitSet bits_less = _bits;
         pva::BitSet final;
         pva::BitFunction::triangle(bits_less, final, pow(2, _n));
-
         std::vector<std::string> out;
         initialization_vector_x(out, _n);
-        for (auto &v : out)
-            std::cout << v << std::endl;
         for (pva::size_type i = 0; i < final.size(); ++i) {
             if (final[i] == static_cast<pva::Bit>(1)) {
                 result += out[i];
