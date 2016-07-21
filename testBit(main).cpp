@@ -11,8 +11,11 @@ int main()
     pva::BitSet bits1(vector);
     pva::BitFunction bf(bits1);
     bf.true_table();
+    /*
     bf.PDNF();
     bf.PCNF();
     bf.ANF();
+    */
+    bf.complex();
     return 0;
 }
